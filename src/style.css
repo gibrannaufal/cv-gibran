@@ -1,9 +1,9 @@
-@import "tailwindcss";
-
 :root {
   font-family: Inter, Poppins, Open Sans, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --md-sys-color-primary: #3DAE2F;
+  --md-sys-color-on-primary: #FFFFFF;
 }
 
 html,
@@ -21,7 +21,4 @@ body,
   padding: 0;
 }
 
-:root {
-  --md-sys-color-primary: #3DAE2F;
-  --md-sys-color-on-primary: #FFFFFF;
-}
+@import "tailwindcss";

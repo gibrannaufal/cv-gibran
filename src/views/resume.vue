@@ -5,10 +5,10 @@
         <div class="w-5 h-5 bg-[#D96C06] rounded-full"></div>
         <h1 class="text-[30px] font-semibold text-center">My Career Path</h1>
       </div>
-      <div class="flex w-3/4 justify-center items-center">
-        <v-timeline>
+      <div class="flex w-full md:w-3/4 justify-center items-center">
+        <v-timeline :side="timelineSide">
           <v-timeline-item dot-color="#D96C06" size="small" fill-dot>
-            <template v-slot:opposite>
+            <template v-if="!isMobile" v-slot:opposite>
               Sep 2025 - Now
             </template>
             <div>
@@ -30,7 +30,7 @@
             </div>
           </v-timeline-item>
           <v-timeline-item dot-color="#D96C06" size="small" fill-dot>
-            <template v-slot:opposite>
+            <template v-if="!isMobile" v-slot:opposite>
               Aug 2023 - Aug 2025
             </template>
             <div>
@@ -59,5 +59,28 @@
 </template>
 
 <script setup>
+import { onMounted, onUnmounted, ref } from "vue";
 import fotoBlue from "../assets/foto-terracota.jpg";
+
+const timelineSide = ref(null);
+const isMobile = ref(false);
+
+const updateTimelineSide = () => {
+  if (window.innerWidth >= 960) {
+    timelineSide.value = null;
+    isMobile.value = false
+  } else {
+    timelineSide.value = 'end';
+    isMobile.value = true
+  }
+};
+
+onMounted(() => {
+  updateTimelineSide();
+  window.addEventListener('resize', updateTimelineSide);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateTimelineSide);
+});
 </script>

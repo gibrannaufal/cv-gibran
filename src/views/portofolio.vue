@@ -12,6 +12,17 @@
       <div class="flex flex-col p-5 gap-y-5 flex-1">
         <v-carousel :continuous="true" :show-arrows="true" delimiter-icon="mdi-circle" height="600"
           hide-delimiter-background>
+          <template v-slot:prev="{ props }">
+            <button v-bind="props" class="!bg-white hover:!bg-white rounded-full p-[12px] ">
+              <v-icon>mdi-chevron-left</v-icon>
+            </button>
+          </template>
+
+          <template v-slot:next="{ props }">
+            <button v-bind="props" class="!bg-white hover:!bg-white  rounded-full p-[12px]">
+              <v-icon>mdi-chevron-right</v-icon>
+            </button>
+          </template>
           <v-carousel-item v-for="(group, index) in chunkedSlides" :key="index">
             <!-- Grid 3x3 -->
             <div class="grid grid-cols-3 h-full gap-6 justify-items-center items-center">

@@ -1,16 +1,20 @@
 <template>
    <div class="px-12 py-4 flex justify-center items-center flex-col min-h-full gap-y-10 bg-[rgb(230,218,206)]">
-      <div class="flex justify-center items-start w-full h-dvh">
-         <div class="flex w-3xl min-h-3/4 h-auto rounded-[8px] overflow-hidden">
-            <div class="w-1/3 bg-[#F5A65B] flex flex-col justify-center items-center p-5 gap-y-5">
-               <div class="w-32 h-32 rounded-full overflow-hidden relative">
+      <div class="flex justify-center items-start w-full h-full md:h-dvh lg:h-dvh ">
+         <div
+            class="flex flex-col md:flex-row w-full md:w-3xl lg:w-3xl min-h-3/4 h-auto rounded-[8px] overflow-visible md:overflow-hidden relative mt-20 md:mt-0">
+            <div
+               class="w-full md:w-1/3 bg-[#F5A65B] flex flex-col justify-center items-center p-5 gap-y-5 rounded-t-[8px] md:rounded-t-none">
+               <div
+                  class="w-32 h-32 rounded-full overflow-hidden  absolute md:static -translate-y-2/3 md:translate-y-0">
                   <img :src="fotoBlue" alt="foto-profile" class="w-full h-full object-cover object-top" />
                </div>
-               <h2 class="text-[25px] font-semibold text-[#2D2D2D] text-center">Muhammad Naufal Gibran</h2>
+               <h2 class="text-[25px] font-semibold text-[#2D2D2D] text-center mt-20 md:mt-0">Muhammad Naufal Gibran
+               </h2>
                <h3 class="text-[18px] font-normal text-[#2D2D2D]">Fullstack Developer</h3>
             </div>
 
-            <div class="w-2/3 p-5 flex flex-col bg-white">
+            <div class="w-full md:w-2/3 p-5 flex flex-col bg-white rounded-b-[8px] md:rounded-b-none">
                <h1 class="text-[50px] font-bold text-[#2D2D2D] mb-2">Hello!</h1>
                <p class="text-[30px] font-normal text-[#2D2D2D] mb-8">Here's who I am & what I do</p>
 
@@ -21,12 +25,15 @@
                   help businesses reach their full potential.
                </p>
 
-               <!-- <v-icon class="text-dark"
-                     start>mdi-download</v-icon> -->
-               <div class="flex flex-row gap-x-4">
-                  <button class="rounded-[8px] border border-[#E07A5F] w-auto px-[12px] py-[8px] bg-white">Download
-                     CV</button>
-                  <button class="rounded-[8px] bg-[#F4A261] w-auto px-[12px] py-[8px]">Contact Me</button>
+
+               <div class="grid grid-cols-2 md:flex md:flex-row gap-x-4">
+                  <button
+                     class="rounded-[8px] border border-[#E07A5F] w-full md:w-auto px-[12px] py-[8px] bg-white">Download
+                     CV
+                  </button>
+                  <a href="/cv-gibran/contact-me" class="w-full md:w-auto">
+                     <button class="rounded-[8px] bg-[#F4A261] w-full md:w-auto px-[12px] py-[8px]">Contact Me</button>
+                  </a>
                </div>
             </div>
          </div>
@@ -36,8 +43,8 @@
             <div class="w-5 h-5 bg-[#D96C06] rounded-full"></div>
             <h1 class="text-[30px] font-semibold text-center">Skills</h1>
          </div>
-         <div class="flex w-3/4 justify-center items-stretch gap-x-8">
-            <!-- Hard Skills Card -->
+         <div
+            class="flex flex-col md:flex-row lg:flex-row w-full md:w-3/4 lg:w-3/4 justify-center items-stretch gap-x-8 gap-y-8">
             <div class="flex flex-col w-full rounded-[8px] overflow-hidden bg-white">
                <div class="w-full p-5 flex flex-col bg-[#F5A65B] gap-y-2 text-center">
                   <h1 class="text-[18px] font-bold text-[#2D2D2D]">Hard Skills</h1>
@@ -57,8 +64,6 @@
                   </v-carousel>
                </div>
             </div>
-
-            <!-- Soft Skills Card -->
             <div class="flex flex-col w-full rounded-[8px] overflow-hidden bg-white">
                <div class="w-full p-5 flex flex-col bg-[#F5A65B] gap-y-2 text-center">
                   <h1 class="text-[18px] font-bold text-[#2D2D2D]">Soft Skills</h1>
@@ -81,10 +86,10 @@
             <div class="w-5 h-5 bg-[#D96C06] rounded-full"></div>
             <h1 class="text-[30px] font-semibold text-center">Education</h1>
          </div>
-         <div class="flex w-3/4 justify-center items-center">
-            <v-timeline>
+         <div class="flex w-full md:w-3/4 justify-center items-center">
+            <v-timeline :side="timelineSide">
                <v-timeline-item dot-color="#D96C06" size="small" fill-dot>
-                  <template v-slot:opposite>
+                  <template v-if="!isMobile" v-slot:opposite>
                      2020-2024
                   </template>
                   <div>
@@ -108,7 +113,7 @@
                   </div>
                </v-timeline-item>
                <v-timeline-item dot-color="#D96C06" size="small" fill-dot>
-                  <template v-slot:opposite>
+                  <template v-if="!isMobile"  v-slot:opposite>
                      2017-2020
                   </template>
                   <div>
@@ -135,7 +140,8 @@
             <div class="w-5 h-5 bg-[#D96C06] rounded-full"></div>
             <h1 class="text-[30px] font-semibold text-center">Certification</h1>
          </div>
-         <div class="flex w-3/4 justify-center items-stretch gap-x-8">
+         <div
+            class="flex flex-col md:flex-row lg:flex-row w-full md:w-3/4 lg:w-3/4 justify-center items-stretch gap-x-8 gap-y-8">
             <!-- Hard Skills Card -->
             <div class="flex flex-col w-full rounded-[8px] overflow-hidden bg-white">
                <div class="w-full p-5 flex flex-col bg-[#F5A65B] gap-y-2 text-center">
@@ -172,7 +178,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted, onUnmounted, ref } from "vue";
 import fotoBlue from "../assets/foto-terracota.jpg";
 import phpLogo from "../assets/php_logo.png";
 import javascriptLogo from "../assets/javascript_logo.jpeg";
@@ -218,4 +224,26 @@ const chunkedSlides = computed(() => {
    }
    return result
 })
+
+const timelineSide = ref(null);
+const isMobile = ref(false);
+
+const updateTimelineSide = () => {
+   if (window.innerWidth >= 960) {
+      timelineSide.value = null;
+      isMobile.value = false
+   } else {
+      timelineSide.value = 'end';
+      isMobile.value = true
+   }
+};
+
+onMounted(() => {
+   updateTimelineSide();
+   window.addEventListener('resize', updateTimelineSide);
+});
+
+onUnmounted(() => {
+   window.removeEventListener('resize', updateTimelineSide);
+});
 </script>
