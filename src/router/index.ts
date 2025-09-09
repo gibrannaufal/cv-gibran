@@ -15,7 +15,7 @@ const router = createRouter({
 });
 
 // Before each route evaluates...
-router.beforeEach(async (routeTo, routeFrom, next) => {
+router.beforeEach(async (_routeTo, _routeFrom, next) => {
   return next();
 });
 
