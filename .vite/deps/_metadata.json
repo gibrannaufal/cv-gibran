@@ -7,31 +7,31 @@
     "vue": {
       "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "5f0e14a1",
+      "fileHash": "2d6382d4",
       "needsInterop": false
     },
     "vuetify": {
       "src": "../../node_modules/vuetify/lib/framework.js",
       "file": "vuetify.js",
-      "fileHash": "16cc76b5",
+      "fileHash": "28173e23",
       "needsInterop": false
     },
     "vuetify/components": {
       "src": "../../node_modules/vuetify/lib/components/index.js",
       "file": "vuetify_components.js",
-      "fileHash": "ccf7166d",
+      "fileHash": "89d38d7c",
       "needsInterop": false
     },
     "vuetify/directives": {
       "src": "../../node_modules/vuetify/lib/directives/index.js",
       "file": "vuetify_directives.js",
-      "fileHash": "180f3d1f",
+      "fileHash": "b8bcbea2",
       "needsInterop": false
     },
     "vue-router": {
       "src": "../../node_modules/vue-router/dist/vue-router.mjs",
       "file": "vue-router.js",
-      "fileHash": "ca5bb176",
+      "fileHash": "501a9ddd",
       "needsInterop": false
     }
   },
