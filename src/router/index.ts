@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import routes from "./routes";
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/cv-gibran/'),
   routes,
   //   mode: "history",
   //   scrollBehavior(to, from, savedPosition) {
